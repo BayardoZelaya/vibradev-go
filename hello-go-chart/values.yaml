@@ -65,8 +65,7 @@ ingress:
   enabled: true
   className: gce
   annotations:
-    {}
-    # kubernetes.io/ingress.class: nginx
+    kubernetes.io/ingress.class: gce
     # kubernetes.io/tls-acme: "true"
   hosts:
     - host: go-app.vibradev.com
