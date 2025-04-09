@@ -13,10 +13,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # Authenticate with Google Cloud
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v1
+        with:
+          credentials_json: "${{ secrets.GCP_KEY }}"
+
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v1
         with:
-          service_account_key: "${{ secrets.GCP_KEY }}"
           project_id: "vibradev-dev"
 
       - name: Configure Docker for Artifact Registry
